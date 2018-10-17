@@ -110,11 +110,14 @@ class Dog
   #   when two dogs have the same name and different breed, it returns the correct dog 
   #   when creating a new dog with the same name as persisted dogs, it returns the correct dog
   
-    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name:, breed:)
+    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
   
-    if dog.empty?
+    if !dog.empty?
+      dog_data = dog[0]
+    else
       dog = self.create(name: name, breed: breed)
     end
+    dog
   end
   
   
