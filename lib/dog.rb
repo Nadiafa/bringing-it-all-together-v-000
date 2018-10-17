@@ -25,11 +25,19 @@ class Dog
   end
 
   def self.new_from_db(row)
-  #   creates an instance with corresponding attribute values
     new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
     
     new_dog
   end
+
+
+  def self.find_by_name(name)
+  #   returns an instance of dog that matches the name from the DB
+    sql = "SELECT * FROM dogs WHERE name = ?"
+    
+    DB[:conn].execute(sql, name)
+  end
+
 
 
   # def save
@@ -53,9 +61,7 @@ class Dog
   # end
   
   
-  # def self.find_by_name
-  #   returns an instance of dog that matches the name from the DB
-  # end
+  
   
   # def update
   #   updates the record associated with a given instance
