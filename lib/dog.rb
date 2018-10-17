@@ -36,7 +36,7 @@ class Dog
     sql = "SELECT * FROM dogs WHERE name = ?"
     
     DB[:conn].execute(sql, name)
-  end
+  end.first
 
 
 
