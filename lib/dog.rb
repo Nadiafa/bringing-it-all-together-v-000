@@ -47,7 +47,15 @@ class Dog
   def save
   #   returns an instance of the dog class (FAILED - 6)
   #   saves an instance of the dog class to the database and then sets the given dogs `id` attribut
-    
+    if self.id
+      self.update
+    else
+      sql = "INSERT INTO dogs (name, breed) VALUES (?, ?)"
+      
+      DB[:conn].execute(sql, self.name, self.breed)
+      
+      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+    end 
   end
 
   # def self.create
@@ -72,6 +80,6 @@ class Dog
   #   updates the record associated with a given instance
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     
-    DB[:conn].execute(sql, self.name, self.breed, self.id)
+    DB[:conn].execute(sql, self.id, self.name, self.breed)
   end
 end
