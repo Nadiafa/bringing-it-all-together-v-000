@@ -7,7 +7,6 @@ class Dog
   end
   
   def self.create_table
-  #   creates the dogs table in the database
     sql = <<-SQL
       CREATE TABLE dogs (
         id INTEGER PRIMARY KEY,
@@ -18,13 +17,11 @@ class Dog
     
     DB[:conn].execute(sql)
   end
-  
-  
-  
-  
-  # def self.drop_table
-  #   drops the dogs table from the databas
-  # end
+
+  def self.drop_table
+    # drops the dogs table from the database
+    sql = 
+  end
 
   # def save
   #   returns an instance of the dog class (FAILED - 6)
