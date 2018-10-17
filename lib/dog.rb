@@ -33,7 +33,7 @@ class Dog
 
   def self.find_by_name(name)
   #   returns an instance of dog that matches the name from the DB
-    sql = "SELECT * FROM dogs WHERE name = ?"
+    sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
     
     DB[:conn].execute(sql, name).first
   end
