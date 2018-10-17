@@ -4,9 +4,6 @@ class Dog
     @name  = name
     @breed = breed
     @id    = id
-  #   has a name and a breed (FAILED - 1)
-  #   has an id that defaults to `nil` on initialization (FAILED - 2)
-  #   accepts key value pairs as arguments to initializ
   end
   def self.create_table
   #   creates the dogs table in the databas
