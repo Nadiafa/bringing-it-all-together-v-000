@@ -7,7 +7,11 @@ class Dog
   end
   
   def self.create_table
-  #   creates the dogs table in the databas
+  #   creates the dogs table in the database
+    sql = <<-SQL
+    SQL
+    
+    DB[:conn].execute(sql)
   end
   
   
