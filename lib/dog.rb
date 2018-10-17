@@ -115,7 +115,7 @@ class Dog
     if !dog.empty?
       dog_data = dog[0]
     else
-      dog = self.create(name: name, breed: breed)
+      dog = self.create(name, breed)
     end
     dog
   end
