@@ -1,5 +1,6 @@
 class Dog
   attr_accessor :id, :name, :breed
+  
   def initialize(id: nil, name:, breed:)
     @id    = id
     @name  = name
@@ -45,8 +46,6 @@ class Dog
 
 
   def save
-  #   returns an instance of the dog class (FAILED - 6)
-  #   saves an instance of the dog class to the database and then sets the given dogs `id` attribut
     if self.id
       self.update
     else
@@ -59,7 +58,7 @@ class Dog
   end
 
   # def self.create
-  #   takes in a hash of attributes and uses metaprogramming to create a new dog object. Then it uses the #save method to save that dog to the database (FAILED -8)
+  #   takes in a hash of attributes and uses metaprogramming to create a new dog object. Then it uses the #save method to save that dog to the database
   #   returns a new dog objec
   # end
   
@@ -68,8 +67,8 @@ class Dog
   # end
   
   # def self.find_or_create_by
-  #   creates an instance of a dog if it does not already exist (FAILED - 11)
-  #   when two dogs have the same name and different breed, it returns the correct dog (FAILED - 12)
+  #   creates an instance of a dog if it does not already exist 
+  #   when two dogs have the same name and different breed, it returns the correct dog 
   #   when creating a new dog with the same name as persisted dogs, it returns the correct dog
   # end
   
