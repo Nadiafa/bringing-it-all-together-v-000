@@ -7,56 +7,56 @@ class Dog
     @breed = breed
   end
   
-  def self.create_table
-    sql = <<-SQL
-      CREATE TABLE IF NOT EXISTS dogs (
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        breed TEXT
-      )
-    SQL
+  # def self.create_table
+  #   sql = <<-SQL
+  #     CREATE TABLE IF NOT EXISTS dogs (
+  #       id INTEGER PRIMARY KEY,
+  #       name TEXT,
+  #       breed TEXT
+  #     )
+  #   SQL
     
-    DB[:conn].execute(sql)
-  end
+  #   DB[:conn].execute(sql)
+  # end
 
-  def self.drop_table
-    sql = "DROP TABLE IF EXISTS dogs"
+  # def self.drop_table
+  #   sql = "DROP TABLE IF EXISTS dogs"
     
-    DB[:conn].execute(sql)
-  end
+  #   DB[:conn].execute(sql)
+  # end
 
-  def self.new_from_db(row)
-    new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
+  # def self.new_from_db(row)
+  #   new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
     
-    new_dog
-  end
+  #   new_dog
+  # end
 
 
 
 
 
 
-  def save
-    if self.id
-      self.update
-    else
-      sql = "INSERT INTO dogs (name, breed) VALUES (?, ?)"
+  # def save
+  #   if self.id
+  #     self.update
+  #   else
+  #     sql = "INSERT INTO dogs (name, breed) VALUES (?, ?)"
       
-      DB[:conn].execute(sql, self.name, self.breed)
+  #     DB[:conn].execute(sql, self.name, self.breed)
       
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
-    end 
-  end
+  #     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+  #   end 
+  # end
   
-  def update
-    sql = <<-SQL
-      UPDATE dogs 
-        SET name = ?, breed = ? 
-        WHERE id = ?
-    SQL
+  # def update
+  #   sql = <<-SQL
+  #     UPDATE dogs 
+  #       SET name = ?, breed = ? 
+  #       WHERE id = ?
+  #   SQL
     
-    DB[:conn].execute(sql, self.id, self.name, self.breed)
-  end
+  #   DB[:conn].execute(sql, self.id, self.name, self.breed)
+  # end
   
   
   
