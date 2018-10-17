@@ -35,8 +35,8 @@ class Dog
   #   returns an instance of dog that matches the name from the DB
     sql = "SELECT * FROM dogs WHERE name = ?"
     
-    DB[:conn].execute(sql, name)
-  end.first
+    DB[:conn].execute(sql, name).first
+  end
 
 
 
