@@ -90,32 +90,30 @@ class Dog
   # end
 
   
-    def self.find_by_name(name)
-  #   returns an instance of dog that matches the name from the DB
-    sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
+    # def self.find_by_name(name)
+  # #   returns an instance of dog that matches the name from the DB
+  #   sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
     
-    DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
+  #   DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
     
-    # DB[:conn].execute(sql, name).map do |row|
-    #     self.new_from_db(row)
-    # end.first
-  end
-  
-  
-  
-  
-
-
-  
-  # def self.find_by_id
-  #   returns a new dog object by id
+  #   # DB[:conn].execute(sql, name).map do |row|
+  #   #     self.new_from_db(row)
+  #   # end.first
   # end
   
-  # def self.find_or_create_by
+  
+  
+  
+  
+  def self.find_or_create_by
   #   creates an instance of a dog if it does not already exist 
   #   when two dogs have the same name and different breed, it returns the correct dog 
   #   when creating a new dog with the same name as persisted dogs, it returns the correct dog
-  # end
+  
+    if !self.id
+      self.create
+    end
+  end
   
   
   
