@@ -19,11 +19,11 @@ class Dog
     DB[:conn].execute(sql)
   end
 
-  # def self.drop_table
-  #   sql = "DROP TABLE IF EXISTS dogs"
+  def self.drop_table
+    sql = "DROP TABLE IF EXISTS dogs"
     
-  #   DB[:conn].execute(sql)
-  # end
+    DB[:conn].execute(sql)
+  end
 
   # def self.new_from_db(row)
   #   new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
