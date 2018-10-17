@@ -59,11 +59,11 @@ class Dog
     end.first
   end 
 
-  # def self.new_from_db(row)
-  #   new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
+  def self.new_from_db(row)
+    new_dog = Dog.new(id: row[0], name: row[1], breed: row[2])
     
-  #   new_dog
-  # end
+    new_dog
+  end
 
 
 
