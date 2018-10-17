@@ -32,18 +32,6 @@ class Dog
   end
 
 
-  # def self.find_by_name(name)
-  # #   returns an instance of dog that matches the name from the DB
-  #   sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
-    
-  #   DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
-    
-  #   # DB[:conn].execute(sql, name).map do |row|
-  #   #     self.new_from_db(row)
-  #   # end.first
-  # end
-
-
 
   def save
     if self.id
@@ -60,10 +48,21 @@ class Dog
   def update
     sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
     
-    DB[:conn].execute(sql, self.id, self.name, self.breed)
+    DB[:conn].execute(sql, self.id:, self.name:, self.breed:)
   end
   
   
+  
+    # def self.find_by_name(name)
+  # #   returns an instance of dog that matches the name from the DB
+  #   sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
+    
+  #   DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
+    
+  #   # DB[:conn].execute(sql, name).map do |row|
+  #   #     self.new_from_db(row)
+  #   # end.first
+  # end
   
   
   
