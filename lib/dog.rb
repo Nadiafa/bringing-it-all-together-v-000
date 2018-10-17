@@ -90,7 +90,7 @@ class Dog
   # end
 
   
-    def self.find_by_name(name)
+  def self.find_by_name(name)
   #   returns an instance of dog that matches the name from the DB
     sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
     
