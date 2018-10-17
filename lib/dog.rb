@@ -5,12 +5,24 @@ class Dog
     @breed = breed
     @id    = id
   end
+  
   def self.create_table
   #   creates the dogs table in the databas
   end
-  # .drop_table
+  
+  
+  
+  
+  def self.drop_table
   #   drops the dogs table from the databas
   end
+  
+  
+  
+  
+  
+  
+  
   def save
   #   returns an instance of the dog class (FAILED - 6)
   #   saves an instance of the dog class to the database and then sets the given dogs `id` attribut
