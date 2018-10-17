@@ -56,6 +56,18 @@ class Dog
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
     end 
   end
+  
+  def update
+    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
+    
+    DB[:conn].execute(sql, self.id, self.name, self.breed)
+  end
+  
+  
+  
+  
+  
+  
 
   # def self.create
   #   takes in a hash of attributes and uses metaprogramming to create a new dog object. Then it uses the #save method to save that dog to the database
@@ -75,10 +87,5 @@ class Dog
   
   
   
-  def update
-  #   updates the record associated with a given instance
-    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
-    
-    DB[:conn].execute(sql, self.id, self.name, self.breed)
-  end
+  
 end
