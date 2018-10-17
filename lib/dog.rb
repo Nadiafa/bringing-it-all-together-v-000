@@ -31,23 +31,24 @@ class Dog
   end
 
 
-  def self.find_by_name(name)
-  #   returns an instance of dog that matches the name from the DB
-    sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
+  # def self.find_by_name(name)
+  # #   returns an instance of dog that matches the name from the DB
+  #   sql = "SELECT * FROM dogs WHERE name = ? LIMIT 1"
     
-    DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
+  #   DB[:conn].execute(sql, name).map { |row| self.new_from_db(row) }.first
     
-    # DB[:conn].execute(sql, name).map do |row|
-    #     self.new_from_db(row)
-    # end.first
-  end
+  #   # DB[:conn].execute(sql, name).map do |row|
+  #   #     self.new_from_db(row)
+  #   # end.first
+  # end
 
 
 
-  # def save
+  def save
   #   returns an instance of the dog class (FAILED - 6)
   #   saves an instance of the dog class to the database and then sets the given dogs `id` attribut
-  # end
+    
+  end
 
   # def self.create
   #   takes in a hash of attributes and uses metaprogramming to create a new dog object. Then it uses the #save method to save that dog to the database (FAILED -8)
@@ -67,7 +68,10 @@ class Dog
   
   
   
-  # def update
+  def update
   #   updates the record associated with a given instance
-  # end
+    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
+    
+    DB[:conn].execute(sql, self.id, self.name, self.breed)
+  end
 end
