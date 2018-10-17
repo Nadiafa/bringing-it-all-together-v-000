@@ -112,7 +112,7 @@ class Dog
   
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
   
-    if !dog.empty?
+    if dog.empty?
       dog = self.create (name: name, breed: breed)
     end
   end
